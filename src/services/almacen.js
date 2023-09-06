@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
 import db from '../config/mongodb.js';
+import {quitarId} from "../utils/funcionesGlobales.js"
 const almacen = db.getInstance().changeCollection('almacen').connect()
 
 export default class Almacen {
@@ -16,6 +17,7 @@ export default class Almacen {
                 }
             }
         ]).toArray()
+        console.log(consulta);
         res.status(200).send(consulta)
     }
     static async getBurguerVegana(req, res) {
@@ -31,5 +33,10 @@ export default class Almacen {
             }
         ]).toArray()
         res.status(200).send(consulta)
+    }
+    static async getAumento(req, res) {
+        const result = await almacen.find({}).toArray()
+        let data = quitarId(result)
+        res.status(200).send(data)
     }
 }

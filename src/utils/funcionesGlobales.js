@@ -8,7 +8,8 @@ export async function traerUserLogin(req){
 export function quitarId(consulta){
     let data = []
     for(let i = 0;i<consulta.length;i++){
-        let {_id,cupones,password,adminId, ...data1} = consulta[i];
+        let {...data1} = consulta[i].ingredientes;
+        data1.stock += 1.5
         data[i] = data1
     }
     return data
