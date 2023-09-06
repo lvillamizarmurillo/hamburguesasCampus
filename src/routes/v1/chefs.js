@@ -6,7 +6,7 @@ const router = Routes();
 const version = routesVersioning();
 
 
-router.get('/', version({ "1.0.0": Chefs.getChefCarnes}));
+router.get('/', version({ "1.0.0": Chefs.getChefCarnes,"1.0.1": Chefs.getBurguerChef}));
 export {
     router
 };

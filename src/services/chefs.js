@@ -1,6 +1,7 @@
 import { ObjectId } from 'mongodb';
 import db from '../config/mongodb.js';
 const chefs = db.getInstance().changeCollection('chefs').connect()
+const almacen = db.getInstance().changeCollection('almacen').connect()
 
 export default class Chefs {
     static async getChefCarnes(req, res) {
@@ -12,6 +13,14 @@ export default class Chefs {
                 $project: {
                     _id: 0
                 }
+            }
+        ]).toArray()
+        res.status(200).send(consulta)
+    }
+    static async getBurguerChef(req, res) {
+        const consulta = await almacen.aggregate([
+            {
+                $match: {"hamburguesas.nombreChef": "ChefB"}
             }
         ]).toArray()
         res.status(200).send(consulta)

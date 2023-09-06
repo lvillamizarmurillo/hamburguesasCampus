@@ -24,7 +24,7 @@ db.createCollection("almacen", {
             hamburguesas:{
                 bsonType: "object",
                 description: "El campo de ingredientes es requerido",
-                required:  [ "tipoHamburguesa", "stock"],
+                required:  [ "tipoHamburguesa", "stock","nombreChef"],
                 properties: {
                     tipoHamburguesa: {
                         bsonType: "string",
@@ -34,6 +34,10 @@ db.createCollection("almacen", {
                     stock: {
                         bsonType: "int",
                         description: "El stock de la hamburguesa es requerido"
+                    },
+                    nombreChef: {
+                        bsonType: "string",
+                        description: "El npmbre del chef es requerido"
                     }
                 }
             },
@@ -49,7 +53,8 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Vegetariana",
-            stock: 8000
+            stock: 8000,
+            nombreChef: "ChefB"
         }
     },
     {
@@ -59,7 +64,8 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
-            stock: 7000
+            stock: 7000,
+            nombreChef: "ChefA"
         }
     },
     {
@@ -69,7 +75,8 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Vegetariana",
-            stock: 8000
+            stock: 8000,
+            nombreChef: "ChefB"
         }
     },
     {
@@ -79,7 +86,8 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
-            stock: 7000
+            stock: 7000,
+            nombreChef: "ChefC"
         }
     }
 ])
@@ -108,15 +116,15 @@ db.createCollection("chefs", {
 })
 db.chefs.insertMany([
     {
-        nombre: "Chef A",
+        nombre: "ChefA",
         tipoChef: "Carnes"
     },
     {
-        nombre: "Chef B",
+        nombre: "ChefB",
         tipoChef: "Vegetariano"
     },
     {
-        nombre: "Chef C",
+        nombre: "ChefC",
         tipoChef: "Carnes"
     },
     
