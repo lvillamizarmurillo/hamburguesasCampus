@@ -2,6 +2,7 @@ import { ObjectId } from 'mongodb';
 import db from '../config/mongodb.js';
 const chefs = db.getInstance().changeCollection('chefs').connect()
 const almacen = db.getInstance().changeCollection('almacen').connect()
+const menu = db.getInstance().changeCollection('menu').connect()
 
 export default class Chefs {
     static async getChefCarnes(req, res) {
@@ -30,5 +31,9 @@ export default class Chefs {
             }
         ]).toArray()
         res.status(200).send(consulta)
+    }
+    static async postBurguer(req, res) {
+        await menu.updateOne({nombre: "Clasica"},{$set: {ingredientes: ["carne","pan","tomate","lechuga"]}})
+        res.status(200).send({status: 200,message: "A la hamburguesa clasica se le añadio lechuga"})
     }
 }

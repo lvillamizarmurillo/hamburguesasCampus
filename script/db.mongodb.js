@@ -136,7 +136,7 @@ db.createCollection("menu", {
        $jsonSchema: {
           bsonType: "object",
           title: "Student Object Validation",
-          required: [ "nombre", "description"],
+          required: [ "nombre", "description","ingredientes"],
           properties: {
             nombre:{
                 bsonType: "string",
@@ -145,22 +145,33 @@ db.createCollection("menu", {
             description:{
                 bsonType: "string",
                 description: "La description es requerida",
+            },
+            ingredientes:{
+                bsonType: "array",
+                description: "El campo de ingredientes es requerido",
+                items: {
+                    bsonType: "string",
+                    description: "El campo de ingredientes debe ser string"
+                }
             }
-          }
+            }  
        }
     }
 })
 db.menu.insertMany([
     {
         nombre: "Carnes",
-        description: "Esta es una descripcion de la hamburguesa de carnes"
+        description: "Esta es una descripcion de la hamburguesa de carnes",
+        ingredientes: ["carne","pan","tomate","pollo"]
     },
     {
         nombre: "Vegetariana",
-        description: "Esta es una descripcion de la hamburguesa Vegetariana"
+        description: "Esta es una descripcion de la hamburguesa Vegetariana",
+        ingredientes: ["carne integral","pan integral","tomate"]
     },
     {
         nombre: "Clasica",
-        description: "Esta es una descripcion de la hamburguesa Clasica"
+        description: "Esta es una descripcion de la hamburguesa Clasica",
+        ingredientes: ["carne","pan","tomate"]
     }
 ])
