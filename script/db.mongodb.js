@@ -83,3 +83,41 @@ db.almacen.insertMany([
         }
     }
 ])
+
+
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("chefs", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "nombre", "tipoChef"],
+          properties: {
+            nombre:{
+                bsonType: "string",
+                description: "El nombre del chef es requerido",
+            },
+            tipoChef:{
+                bsonType: "string",
+                enum: ["Vegetariano","Carnes"],
+                description: "El tipo del chef es requerido",
+            }
+          }
+       }
+    }
+})
+db.chefs.insertMany([
+    {
+        nombre: "Chef A",
+        tipoChef: "Carnes"
+    },
+    {
+        nombre: "Chef B",
+        tipoChef: "Vegetariano"
+    },
+    {
+        nombre: "Chef C",
+        tipoChef: "Carnes"
+    },
+    
+])
