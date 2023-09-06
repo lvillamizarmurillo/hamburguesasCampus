@@ -22,3 +22,8 @@ app
     .listen(PORT, ()=> {
         console.log(`server in http://127.10.10.10:${PORT}`);
     })
+
+    //filtroMongo_LudwingSantiagoVillamizarMurillo
+    //mongodb+srv://latinoamericacampus233:Campus2023@cluster0.zarbjab.mongodb.net/
+    //mongodb+srv://latinoamericacampus233:Campus2023@cluster0.l3dtumk.mongodb.net/
+
