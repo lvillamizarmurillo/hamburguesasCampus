@@ -6,7 +6,7 @@ const router = Routes();
 const version = routesVersioning();
 
 
-router.get('/', version({ "1.0.0": Almacen.getIngredientes}));
+router.get('/', version({ "1.0.0": Almacen.getIngredientes,"1.0.1": Almacen.getBurguerVegana}));
 export {
     router
 };
