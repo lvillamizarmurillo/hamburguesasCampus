@@ -21,6 +21,12 @@ export default class Chefs {
         const consulta = await almacen.aggregate([
             {
                 $match: {"hamburguesas.nombreChef": "ChefB"}
+            },
+            {
+                $project: {
+                    _id: 0,
+                    hamburguesas: 1
+                }
             }
         ]).toArray()
         res.status(200).send(consulta)

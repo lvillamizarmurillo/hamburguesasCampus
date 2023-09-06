@@ -2,6 +2,7 @@ import { ObjectId } from 'mongodb';
 import db from '../config/mongodb.js';
 import {quitarId} from "../utils/funcionesGlobales.js"
 const almacen = db.getInstance().changeCollection('almacen').connect()
+const menu = db.getInstance().changeCollection('menu').connect()
 
 export default class Almacen {
 
@@ -34,9 +35,23 @@ export default class Almacen {
         ]).toArray()
         res.status(200).send(consulta)
     }
+    static async getBurguerCategoria(req, res) {
+        const consulta = await menu.aggregate([
+            {
+                $project: {
+                    _id: 0,
+                }
+            }
+        ]).toArray()
+        res.status(200).send(consulta)
+    }
     static async getAumento(req, res) {
         const result = await almacen.find({}).toArray()
         let data = quitarId(result)
         res.status(200).send(data)
+    }
+    static async deleteStockIngredientes(req, res) {
+        await almacen.deleteMany({"ingredientes.stock": 0})
+        res.status(200).json({status: 200,message: "Alimentos en stock 0 eliminados."})
     }
 }

@@ -28,7 +28,7 @@ db.createCollection("almacen", {
                 properties: {
                     tipoHamburguesa: {
                         bsonType: "string",
-                        enum: ["Vegetariana","Carnes"],
+                        enum: ["Vegetariana","Carnes","Clasica"],
                         description: "El tipo de la hamburguesa es requerido solo puede ser vegetariana o de carnes"
                     },
                     stock: {
@@ -60,7 +60,7 @@ db.almacen.insertMany([
     {
         ingredientes: {
             nameIngrediente: "Lechuga",
-            stock: 100
+            stock: 0
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
@@ -128,4 +128,39 @@ db.chefs.insertMany([
         tipoChef: "Carnes"
     },
     
+])
+
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("menu", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "nombre", "description"],
+          properties: {
+            nombre:{
+                bsonType: "string",
+                description: "El nombre del chef es requerido",
+            },
+            description:{
+                bsonType: "string",
+                description: "La description es requerida",
+            }
+          }
+       }
+    }
+})
+db.menu.insertMany([
+    {
+        nombre: "Carnes",
+        description: "Esta es una descripcion de la hamburguesa de carnes"
+    },
+    {
+        nombre: "Vegetariana",
+        description: "Esta es una descripcion de la hamburguesa Vegetariana"
+    },
+    {
+        nombre: "Clasica",
+        description: "Esta es una descripcion de la hamburguesa Clasica"
+    }
 ])
