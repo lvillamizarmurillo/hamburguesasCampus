@@ -17,6 +17,8 @@ router.get('/', version({ "1.0.0": Chefs.getPanIntegral,"1.0.1": validate(Chefs.
 
 router.post('/', version({ "1.0.0": Chefs.postBurguer}));
 
+router.delete('/', version({ "1.0.0": Chefs.deleteIngredientes}));
+
 export {
     router
 };

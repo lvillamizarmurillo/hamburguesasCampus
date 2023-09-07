@@ -180,7 +180,7 @@ db.menu.insertMany([
     {
         nombre: "Carnes",
         description: "Esta es una descripcion de la hamburguesa y es gourmet",
-        ingredientes: ["carne","pan","tomate","pollo", "queso chedar"]
+        ingredientes: ["carne","pan","tomate","pollo", "queso chedar","lechuga"]
     },
     {
         nombre: "Vegetariana",
@@ -190,12 +190,12 @@ db.menu.insertMany([
     {
         nombre: "Clasica",
         description: "Esta es una descripcion de la hamburguesa Clasica",
-        ingredientes: ["carne","pan","tomate", "queso chedar"]
+        ingredientes: ["carne","pan","tomate", "queso chedar","lechuga"]
     },
     {
         nombre: "Asiatica",
         description: "Esta es una descripcion de la hamburguesa y es gourmet",
-        ingredientes: ["carne","pan","tomate", "queso chedar"]
+        ingredientes: ["carne","pan","tomate", "queso chedar","pepino","atun"]
     }
 ])
 

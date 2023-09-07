@@ -107,4 +107,8 @@ export default class Chefs {
         await chefs.updateOne({nombre: "ChefC"},{$set: {tipoChef: "Cocina Internacional"}})
         res.status(200).send({status: 200,message: "El ChefC ahora esta especializado en Cocina Internacional"})
     }
+    static async deleteIngredientes(req, res) {
+        await menu.deleteMany({"ingredientes": {$size: 3}})
+        res.status(200).send({status: 200,message: "Hamburguesas con menos de 5 ingredientes eliminada"})
+    }
 }
