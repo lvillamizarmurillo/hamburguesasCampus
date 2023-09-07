@@ -38,63 +38,17 @@ JWT_SECRET = "fklsdfjkld"
 
 
 
-
-
 3. Para correr el servidor se usa el comando:
 
 ```
 npm run dev
 ```
 
+en los siguentes comandos copie el server para cada endpoint, le recomiendo colocar en port el 3050.
 
+# MongoDBE
 
-- Base de datos MySQL configurada y accesible, para crearla sencillo solo debes entrar a la carpeta db/ZooSmart.sql.
-- Luego ejecutar cada código de arriba hacia abajo.
-
-## Uso
-
-Para cualquier consulta se debe loguear con el siguiente usuario:
-
-Post
-
-```
-http://127.10.10.10:3050/api/login
-```
-
-
-
-Seguido en el body colocar el siguiente usuario
-
-```
-{
-  "email": "admin@gmail.com",
-  "password": "123"
-}
-```
-
-
-
-Luego el token generado se debera colocar en Auth/BearerToken
-
-Ej:
-
-```
-sauhdusaihdiuahsiudyhsaoiudjaisdsanlkjdnaskjhdijsahdkjhsakjdhsakjhdkjashd
-```
-
-
-
-O en headers colocar Authorization seguido de Bearer (token)
-
-Ej:
-
-```
-Authorization:   Bearer sjahdiuashdiuahsodijsaoijdsioajdoijdoiasjdoijasoijdoiasoidjsa
-```
-
-------
-
-# MongoDB
+Antes de iniciar, debe por el documento que hay en scrips ejecutar lo siguiente:
 
 ```js
 use ("filtroMongo_LudwingSantiagoVillamizar")
@@ -324,6 +278,47 @@ db.usuarios.insertMany([
         password: "123"
     }
 ])
+```
+
+## Uso
+
+Para cualquier consulta se debe loguear con el siguiente usuario:
+
+Post
+
+```
+http://127.10.10.10:3050/api/login
+```
+
+
+
+Seguido en el body colocar el siguiente usuario
+
+```
+{
+  "email": "admin@gmail.com",
+  "password": "123"
+}
+```
+
+
+
+Luego el token generado se debera colocar en Auth/BearerToken
+
+Ej:
+
+```
+sauhdusaihdiuahsiudyhsaoiudjaisdsanlkjdnaskjhdijsahdkjhsakjdhsakjhdkjashd
+```
+
+
+
+O en headers colocar Authorization seguido de Bearer (token)
+
+Ej:
+
+```
+Authorization:   Bearer sjahdiuashdiuahsodijsaoijdsioajdoijdoiasjdoijasoijdoiasoidjsa
 ```
 
 ------
