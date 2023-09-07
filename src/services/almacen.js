@@ -54,4 +54,18 @@ export default class Almacen {
         await almacen.deleteMany({"ingredientes.stock": 0})
         res.status(200).json({status: 200,message: "Alimentos en stock 0 eliminados."})
     }
+    static async getIngredienteCaro(req, res) {
+        const consulta = await almacen.aggregate([
+            {
+                $match: {"ingredientes.stock": 500}
+            },
+            {
+                $project: {
+                    _id: 0,
+                    ingredientes: 1
+                }
+            }
+        ]).toArray()
+        res.status(200).send(consulta)
+    }
 }
