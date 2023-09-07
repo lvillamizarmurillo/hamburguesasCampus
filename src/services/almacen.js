@@ -68,4 +68,8 @@ export default class Almacen {
         ]).toArray()
         res.status(200).send(consulta)
     }
+    static async updatePan(req, res) {
+        await almacen.updateOne({"ingredientes.nameIngrediente": "Pan"},{ $inc: {"ingredientes.stock": 100}})
+        res.status(200).json({status: 200,message: "Pan aumentado con exito."})
+    }
 }

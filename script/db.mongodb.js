@@ -28,7 +28,6 @@ db.createCollection("almacen", {
                 properties: {
                     tipoHamburguesa: {
                         bsonType: "string",
-                        enum: ["Vegetariana","Carnes","Clasica"],
                         description: "El tipo de la hamburguesa es requerido solo puede ser vegetariana o de carnes"
                     },
                     stock: {
@@ -53,7 +52,7 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Vegetariana",
-            stock: 8000,
+            stock: 8,
             nombreChef: "ChefB"
         }
     },
@@ -64,7 +63,7 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
-            stock: 7000,
+            stock: 11,
             nombreChef: "ChefA"
         }
     },
@@ -75,7 +74,7 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Vegetariana",
-            stock: 8000,
+            stock: 10,
             nombreChef: "ChefB"
         }
     },
@@ -86,7 +85,18 @@ db.almacen.insertMany([
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
-            stock: 7000,
+            stock: 11,
+            nombreChef: "ChefC"
+        }
+    },
+    {
+        ingredientes: {
+            nameIngrediente: "Pan",
+            stock: 200
+        },
+        hamburguesas: {
+            tipoHamburguesa: "Asiatica",
+            stock: 9,
             nombreChef: "ChefC"
         }
     }
