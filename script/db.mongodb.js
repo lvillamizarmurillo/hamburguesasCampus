@@ -193,3 +193,30 @@ db.menu.insertMany([
         ingredientes: ["carne","pan","tomate", "queso chedar"]
     }
 ])
+
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("usuarios", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "email", "password"],
+          properties: {
+            email:{
+                bsonType: "string",
+                description: "El email del usuario es requerido",
+            },
+            password:{
+                bsonType: "string",
+                description: "La contraseña es requerida",
+            }
+            }  
+       }
+    }
+})
+db.usuarios.insertMany([
+    {
+        email: "admin@gmail.com",
+        password: "123"
+    }
+])

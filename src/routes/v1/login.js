@@ -14,5 +14,3 @@ router.post('/', version({
 export {
     router
 };
-
-//appUsuarios.use(passportHelper.authenticate('bearer', {session: false}));
