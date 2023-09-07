@@ -161,7 +161,7 @@ db.menu.insertMany([
     {
         nombre: "Carnes",
         description: "Esta es una descripcion de la hamburguesa de carnes",
-        ingredientes: ["carne","pan","tomate","pollo"]
+        ingredientes: ["carne","pan","tomate","pollo", "queso chedar"]
     },
     {
         nombre: "Vegetariana",
@@ -171,6 +171,6 @@ db.menu.insertMany([
     {
         nombre: "Clasica",
         description: "Esta es una descripcion de la hamburguesa Clasica",
-        ingredientes: ["carne","pan","tomate"]
+        ingredientes: ["carne","pan","tomate", "queso chedar"]
     }
 ])

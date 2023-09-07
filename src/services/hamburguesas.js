@@ -47,6 +47,21 @@ export default class Chefs {
         ]).toArray()
         res.status(200).send(consulta)
     }
+    static async getSinChedar(req, res) {
+        const consulta = await menu.aggregate([
+            {
+                $match: {"ingredientes": {$nin: ["queso chedar"]}}
+            },
+            {
+                $project: {
+                    _id: 0,
+                    nombre: 1,
+                    ingredientes: 1
+                }
+            }
+        ]).toArray()
+        res.status(200).send(consulta)
+    }
     static async postBurguer(req, res) {
         await menu.updateOne({nombre: "Clasica"},{$set: {ingredientes: ["carne","pan","tomate","lechuga"]}})
         res.status(200).send({status: 200,message: "A la hamburguesa clasica se le añadio lechuga"})

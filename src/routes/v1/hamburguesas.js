@@ -11,7 +11,7 @@ router.get('/chef', version({ "1.0.0": Chefs.getChefCarnes,"1.0.1": Chefs.getBur
 
 router.post('/chef', version({ "1.0.0": validate(Chefs.postChefTipo)}));
 
-router.get('/', version({ "1.0.0": Chefs.getPanIntegral}));
+router.get('/', version({ "1.0.0": Chefs.getPanIntegral,"1.0.1": validate(Chefs.getSinChedar)}));
 
 router.post('/', version({ "1.0.0": Chefs.postBurguer}));
 
