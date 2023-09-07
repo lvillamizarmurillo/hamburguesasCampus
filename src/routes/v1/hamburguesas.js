@@ -13,7 +13,7 @@ router.get('/chef', version({ "1.0.0": Chefs.getChefCarnes,"1.0.1": Chefs.getBur
 
 router.post('/chef', version({ "1.0.0": validate(Chefs.postChefTipo)}));
 
-router.get('/', version({ "1.0.0": Chefs.getPanIntegral,"1.0.1": validate(Chefs.getSinChedar),"1.0.2": validate(Chefs.getPrecio)}));
+router.get('/', version({ "1.0.0": Chefs.getPanIntegral,"1.0.1": validate(Chefs.getSinChedar),"1.0.2": validate(Chefs.getPrecio),"1.0.3": validate(Chefs.getGourmet)}));
 
 router.post('/', version({ "1.0.0": Chefs.postBurguer}));
 

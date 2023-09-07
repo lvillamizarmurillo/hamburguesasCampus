@@ -179,7 +179,7 @@ db.createCollection("menu", {
 db.menu.insertMany([
     {
         nombre: "Carnes",
-        description: "Esta es una descripcion de la hamburguesa de carnes",
+        description: "Esta es una descripcion de la hamburguesa y es gourmet",
         ingredientes: ["carne","pan","tomate","pollo", "queso chedar"]
     },
     {
@@ -190,6 +190,11 @@ db.menu.insertMany([
     {
         nombre: "Clasica",
         description: "Esta es una descripcion de la hamburguesa Clasica",
+        ingredientes: ["carne","pan","tomate", "queso chedar"]
+    },
+    {
+        nombre: "Asiatica",
+        description: "Esta es una descripcion de la hamburguesa y es gourmet",
         ingredientes: ["carne","pan","tomate", "queso chedar"]
     }
 ])
