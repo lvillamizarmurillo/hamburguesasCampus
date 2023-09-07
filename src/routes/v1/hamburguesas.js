@@ -11,7 +11,7 @@ router.use(passportHelper.authenticate('bearer', {session: false}));
 
 router.get('/chef', version({ "1.0.0": Chefs.getChefCarnes,"1.0.1": Chefs.getBurguerChef,"1.0.2": Chefs.getChefAll}));
 
-router.post('/chef', version({ "1.0.0": validate(Chefs.postChefTipo)}));
+router.post('/chef', version({ "1.0.0": validate(Chefs.postChefTipo),"1.0.1": validate(Chefs.postChefD)}));
 
 router.get('/', version({ "1.0.0": Chefs.getPanIntegral,"1.0.1": validate(Chefs.getSinChedar),"1.0.2": validate(Chefs.getPrecio),"1.0.3": validate(Chefs.getGourmet)}));
 

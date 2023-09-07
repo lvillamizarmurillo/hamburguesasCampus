@@ -111,4 +111,8 @@ export default class Chefs {
         await menu.deleteMany({"ingredientes": {$size: 3}})
         res.status(200).send({status: 200,message: "Hamburguesas con menos de 5 ingredientes eliminada"})
     }
+    static async postChefD(req, res) {
+        await chefs.insertOne({nombre: "ChefD",tipoChef: "Cocina Asiática"})
+        res.status(200).send({status: 200,message: "El ChefD se añadio con exito y es especializado en Cocina Asiática"})
+    }
 }
