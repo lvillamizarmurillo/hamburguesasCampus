@@ -72,4 +72,21 @@ export default class Almacen {
         await almacen.updateOne({"ingredientes.nameIngrediente": "Pan"},{ $inc: {"ingredientes.stock": 100}})
         res.status(200).json({status: 200,message: "Pan aumentado con exito."})
     }
+    static async getClasicos(req, res) {
+        const consulta = await almacen.aggregate([
+            {
+                $match: { "ingredientes.descripcion": "este ingrediente es clasico" }
+            },
+            {
+                $project: {
+                    _id: 0,
+                    ingredientes: {
+                        nameIngrediente: 1,
+                        descripcion: 1
+                    }
+                }
+            }
+        ]).toArray()
+        res.status(200).json(consulta)
+    }
 }

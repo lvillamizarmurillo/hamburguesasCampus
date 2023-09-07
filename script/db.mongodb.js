@@ -9,7 +9,7 @@ db.createCollection("almacen", {
             ingredientes:{
                 bsonType: "object",
                 description: "El campo de ingredientes es requerido",
-                required:  [ "nameIngrediente", "stock"],
+                required:  [ "nameIngrediente", "stock","descripcion"],
                 properties: {
                     nameIngrediente: {
                         bsonType: "string",
@@ -18,6 +18,10 @@ db.createCollection("almacen", {
                     stock: {
                         bsonType: "int",
                         description: "El stock del ingrediente es requerido"
+                    },
+                    descripcion: {
+                        bsonType: "string",
+                        description: "La descripcion es obligatoria y debe ser string"
                     }
                 }
             },
@@ -48,7 +52,8 @@ db.almacen.insertMany([
     {
         ingredientes: {
             nameIngrediente: "Carne",
-            stock: 500
+            stock: 500,
+            descripcion: "este ingrediente es clasico"
         },
         hamburguesas: {
             tipoHamburguesa: "Vegetariana",
@@ -59,7 +64,8 @@ db.almacen.insertMany([
     {
         ingredientes: {
             nameIngrediente: "Lechuga",
-            stock: 0
+            stock: 0,
+            descripcion: "este ingrediente es normal"
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
@@ -70,7 +76,8 @@ db.almacen.insertMany([
     {
         ingredientes: {
             nameIngrediente: "Pollo",
-            stock: 450
+            stock: 450,
+            descripcion: "este ingrediente es clasico"
         },
         hamburguesas: {
             tipoHamburguesa: "Vegetariana",
@@ -81,7 +88,8 @@ db.almacen.insertMany([
     {
         ingredientes: {
             nameIngrediente: "Tomate",
-            stock: 200
+            stock: 200,
+            descripcion: "este ingrediente es normal"
         },
         hamburguesas: {
             tipoHamburguesa: "Carnes",
@@ -92,7 +100,8 @@ db.almacen.insertMany([
     {
         ingredientes: {
             nameIngrediente: "Pan",
-            stock: 200
+            stock: 200,
+            descripcion: "este ingrediente es clasico"
         },
         hamburguesas: {
             tipoHamburguesa: "Asiatica",
