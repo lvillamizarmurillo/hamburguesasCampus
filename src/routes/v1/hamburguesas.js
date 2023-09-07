@@ -9,7 +9,7 @@ const version = routesVersioning();
 
 router.use(passportHelper.authenticate('bearer', {session: false}));
 
-router.get('/chef', version({ "1.0.0": Chefs.getChefCarnes,"1.0.1": Chefs.getBurguerChef}));
+router.get('/chef', version({ "1.0.0": Chefs.getChefCarnes,"1.0.1": Chefs.getBurguerChef,"1.0.2": Chefs.getChefAll}));
 
 router.post('/chef', version({ "1.0.0": validate(Chefs.postChefTipo)}));
 

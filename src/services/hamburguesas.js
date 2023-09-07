@@ -32,6 +32,14 @@ export default class Chefs {
         ]).toArray()
         res.status(200).send(consulta)
     }
+    static async getChefAll(req, res) {
+        const consulta = await chefs.aggregate([
+            {
+                $count: "Total de ches"
+            }
+        ]).toArray()
+        res.status(200).send(consulta)
+    }
     static async getPanIntegral(req, res) {
         const consulta = await menu.aggregate([
             {
