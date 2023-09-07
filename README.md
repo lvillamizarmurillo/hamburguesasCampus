@@ -1,56 +1,26 @@
-# Filtro MongoDB - campus
+# Hamburguesas Campus
 
-## Instalacion
+------
 
-#### clone o descargue el repositorio donde esta leyendo esto, al tenerlo entra a la carpeta creada y ejecuta  ```npm install``` crea un nuevo archivo llamado ```.env``` y escriba dentro de el lo siguiente
-```
-URI_MONGODB = 
-PORT = 3000
-JWT_SECRET = "fklsdfjkld"
-```
+La cafetería de Campuslands proporcionará a los campistas la conveniencia de adquirir hamburguesas, pero se enfrenta a un desafío crítico relacionado con la gestión de ingredientes. La gestión ineficiente de la disponibilidad de ingredientes puede llevar a problemas operativos, como la falta de ingredientes esenciales o el desperdicio de productos no utilizados por parte de los Chefs. Esto se traduce en una experiencia insatisfactoria para los clientes, pérdida de ingresos y un aumento innecesario en los costos operativos.
 
-#### Ejecuta en la terminal ```npm run dev```
+La falta de un sistema de gestión de inventario eficiente y automatizado dificulta la capacidad de los Chefs para:
+
+1. Satisfacer la demanda de los clientes de manera constante y oportuna.
+2. Mantener un seguimiento preciso de los ingredientes y su fecha de vencimiento.
+3. Minimizar el desperdicio de ingredientes y costos innecesarios.
+4. Tomar decisiones informadas sobre cuándo realizar pedidos de reposición.
+5. Garantizar una experiencia de cliente consistente y de alta calidad en sus platos.
+
+En resumen, los Chefs se enfrentan a un problema crítico de gestión de ingredientes que afecta su capacidad para operar eficientemente y brindar un servicio de calidad. Para abordar este problema, es necesario desarrollar un sistema de gestión de inventario efectivo que permita un control en tiempo real del stock de ingredientes y una planificación de pedidos más precisa.
 
 
-### Documentacion de los enpoints
 
-#### Metodos GET
+**Nota :** Briyith te lo agradecerá UwU
 
-| metodo | url                                                          | body                                      | Descripcion                                                  |
-| ------ | ------------------------------------------------------------ | ----------------------------------------- | ------------------------------------------------------------ |
-| GET    |                                                              | NO                                        |                                                              |
+## Necesario
 
-#### Metodos POST
-
-| metodo   | url                                                               |body                                        | Descripcion                   |
-|----------|-------------------------------------------------------------------|--------------------------------------------|-------------------------------|
-| POST     |                                                                   |                                            |                               |
-
-#### Metodos PUT
-
-| metodo | url                                                          | body                                                         | Descripcion                    |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------ |
-|  PUT   |                                                              |                                                              |                                |
-
-#### Metodos DELETE
-
-| metodo  | url                                                          | body | Descripcion       |
-| ------- | ------------------------------------------------------------ | ---- | ----------------- |
-| DELETE  |                                                              | NO   |                   |
-
-## Dependencias que se usaron
-
-Se usó la `v18.16.1` de NojeJS para este proyecto
-
-1. Clone este repositorio en su máquina local.
-
-   ```
-   git clone https://askjdkajskd
-   ```
-
-   
-
-   2.Se instalan las dependencias del package.json con el siguiente comando:
+1.Se instalan las dependencias del package.json con el siguiente comando:
 
 ```
 npm i
@@ -58,31 +28,19 @@ npm i
 
 
 
-Se instala `nodemon` para que se reinicie el servidor cada vez que se haga un cambio en el código *Se instala nodemon en las dependecias de desarrollo* Se instala `express` para crear el servidor Se instala `dotenv` para cargar las variables de entorno Se instala `mysql2` para la conexión con la base de datos Se instala `jose` para la creacion de token Se instala `typescript` para el uso de typescript Se instala `class-transformer` para transformar los datos que se envían al servidor Se instala `class-validator` para validar los datos que se envían al servidor, es necesario el reflect-metadat y el jose para generar los tokens 4. Configuración del archivo .env Escribe el puerto que vayas a utilizar:
+2. Se debe poner en la variable .env.example, luego renombrarlo unicamente como .env
 
 ```
-CONFIG = { "hostname" : "locahost", "port" : ""}
-```
-
-
-
-Antes de ejecutar el servidor, asegúrate de llenar los datos del archivo .env con la información de tu base de datos y las claves necesarias. El archivo .env debe tener la siguiente estructura:
-
-```
-MY_CONECTION = {"host":"localhost","user":"","password":"","database":"","port":3306}
+URI_MONGODB = "conexion"
+PORT = 3050
+JWT_SECRET = "fklsdfjkld"
 ```
 
 
 
-Aparte debes tener la variable de entorno para usar JWT:
-
-```
-JWT_PRIVATE_KEY = "djfqoiwrue4reu23rksjd"
-```
 
 
-
-1. Para correr el servidor se usa el comando:
+3. Para correr el servidor se usa el comando:
 
 ```
 npm run dev
@@ -95,106 +53,494 @@ npm run dev
 
 ## Uso
 
-Para utilizar el sistema de gestión de incidencias técnicas, primero debe obtener un token de permiso para acceder a los endpoints protegidos. Puede obtenerlo haciendo una solicitud a la siguiente URL:
+Para cualquier consulta se debe loguear con el siguiente usuario:
+
+Post
 
 ```
-GET http://localhost:port/autorizacion/:tabla?endpoint
-```
-
-
-
-Reemplace `:tabla` con los datos del usuario que va a utilizar los endpoints(users,publicaciones,animales,like). `RECUERDA` Que el port tienes que haberlo definido en el .env Una vez que tenga el token, inclúyalo en el encabezado de sus solicitudes a los endpoints protegidos utilizando la siguiente clave-valor:
-
-```
-Authorization: token-de-respuesta
+http://127.10.10.10:3050/api/login
 ```
 
 
 
-# Endpoints de ZooSmart
-
-A continuación, puede utilizar los siguientes endpoints para interactuar con el sistema:
-
-### users
-
-1. `GET /autorizacion/users?endpoint`: Obtiene el token de users, dura 1 h, recomendacion guardarlo.
-
-Una vez que tenga el token, inclúyalo en el encabezado de sus solicitudes a los endpoints protegidos utilizando la siguiente clave-valor:
+Seguido en el body colocar el siguiente usuario
 
 ```
-Authorization: token-de-respuesta
+{
+  "email": "admin@gmail.com",
+  "password": "123"
+}
 ```
 
 
 
-- `GET /users`: Obtener todos los usuarios registrados.
+Luego el token generado se debera colocar en Auth/BearerToken
 
-- *`GET /users`:*
+Ej:
 
-  ```
-  {
-  
-  }
-  ```
+```
+sauhdusaihdiuahsiudyhsaoiudjaisdsanlkjdnaskjhdijsahdkjhsakjdhsakjhdkjashd
+```
 
-  
 
-- `GET /users/id`: Obtener un usuario en especifico que este registrado unicamente por el id.
 
-- *`GET /users/id`:*
+O en headers colocar Authorization seguido de Bearer (token)
 
-  ```
-  {
-    "id": 3
-  }
-  ```
+Ej:
 
-  
+```
+Authorization:   Bearer sjahdiuashdiuahsodijsaoijdsioajdoijdoiasjdoijasoijdoiasoidjsa
+```
 
-  -Recuerda revisar la URL para antes de realizar el post ya que para esta función se le agrega /id extra a la URL, las demás no la tienen.
+------
 
-- `POST /users`: Crea un nuevo usuario.
+# MongoDB
 
-- *`POST /users`:*
+```js
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("almacen", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "ingredientes", "hamburguesas"],
+          properties: {
+            ingredientes:{
+                bsonType: "object",
+                description: "El campo de ingredientes es requerido",
+                required:  [ "nameIngrediente", "stock","descripcion"],
+                properties: {
+                    nameIngrediente: {
+                        bsonType: "string",
+                        description: "El nombre del ingrediente es requerido"
+                    },
+                    stock: {
+                        bsonType: "int",
+                        description: "El stock del ingrediente es requerido"
+                    },
+                    descripcion: {
+                        bsonType: "string",
+                        description: "La descripcion es obligatoria y debe ser string"
+                    }
+                }
+            },
+            hamburguesas:{
+                bsonType: "object",
+                description: "El campo de ingredientes es requerido",
+                required:  [ "tipoHamburguesa", "stock","nombreChef"],
+                properties: {
+                    tipoHamburguesa: {
+                        bsonType: "string",
+                        description: "El tipo de la hamburguesa es requerido solo puede ser vegetariana o de carnes"
+                    },
+                    stock: {
+                        bsonType: "int",
+                        description: "El stock de la hamburguesa es requerido"
+                    },
+                    nombreChef: {
+                        bsonType: "string",
+                        description: "El npmbre del chef es requerido"
+                    }
+                }
+            },
+          }
+       }
+    }
+})
+db.almacen.insertMany([
+    {
+        ingredientes: {
+            nameIngrediente: "Carne",
+            stock: 500,
+            descripcion: "este ingrediente es clasico"
+        },
+        hamburguesas: {
+            tipoHamburguesa: "Vegetariana",
+            stock: 8,
+            nombreChef: "ChefB"
+        }
+    },
+    {
+        ingredientes: {
+            nameIngrediente: "Lechuga",
+            stock: 0,
+            descripcion: "este ingrediente es normal"
+        },
+        hamburguesas: {
+            tipoHamburguesa: "Carnes",
+            stock: 11,
+            nombreChef: "ChefA"
+        }
+    },
+    {
+        ingredientes: {
+            nameIngrediente: "Pollo",
+            stock: 450,
+            descripcion: "este ingrediente es clasico"
+        },
+        hamburguesas: {
+            tipoHamburguesa: "Vegetariana",
+            stock: 10,
+            nombreChef: "ChefB"
+        }
+    },
+    {
+        ingredientes: {
+            nameIngrediente: "Tomate",
+            stock: 200,
+            descripcion: "este ingrediente es normal"
+        },
+        hamburguesas: {
+            tipoHamburguesa: "Carnes",
+            stock: 11,
+            nombreChef: "ChefC"
+        }
+    },
+    {
+        ingredientes: {
+            nameIngrediente: "Pan",
+            stock: 200,
+            descripcion: "este ingrediente es clasico"
+        },
+        hamburguesas: {
+            tipoHamburguesa: "Asiatica",
+            stock: 9,
+            nombreChef: "ChefC"
+        }
+    }
+])
 
-  ```
-  {
-    "id": 123,
-    "nombre": "Miguel",
-    "email": "campusland@company.com",
-    "numero": "1234567890",
-    "password": "asddsafs213"
-  }
-  ```
 
-  
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("chefs", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "nombre", "tipoChef"],
+          properties: {
+            nombre:{
+                bsonType: "string",
+                description: "El nombre del chef es requerido",
+            },
+            tipoChef:{
+                bsonType: "string",
+                description: "El tipo del chef es requerido",
+            }
+          }
+       }
+    }
+})
+db.chefs.insertMany([
+    {
+        nombre: "ChefA",
+        tipoChef: "Carnes"
+    },
+    {
+        nombre: "ChefB",
+        tipoChef: "Vegetariano"
+    },
+    {
+        nombre: "ChefC",
+        tipoChef: "Carnes"
+    },
+    
+])
 
-- `PUT /users`: Modifica un usuario registrado guiándose por el id.
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("menu", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "nombre", "description","ingredientes"],
+          properties: {
+            nombre:{
+                bsonType: "string",
+                description: "El nombre del chef es requerido",
+            },
+            description:{
+                bsonType: "string",
+                description: "La description es requerida",
+            },
+            ingredientes:{
+                bsonType: "array",
+                description: "El campo de ingredientes es requerido",
+                items: {
+                    bsonType: "string",
+                    description: "El campo de ingredientes debe ser string"
+                }
+            }
+            }  
+       }
+    }
+})
+db.menu.insertMany([
+    {
+        nombre: "Carnes",
+        description: "Esta es una descripcion de la hamburguesa y es gourmet",
+        ingredientes: ["carne","pan","tomate","pollo", "queso chedar","lechuga"]
+    },
+    {
+        nombre: "Vegetariana",
+        description: "Esta es una descripcion de la hamburguesa Vegetariana",
+        ingredientes: ["carne integral","pan integral","tomate"]
+    },
+    {
+        nombre: "Clasica",
+        description: "Esta es una descripcion de la hamburguesa Clasica",
+        ingredientes: ["carne","pan","tomate", "queso chedar","lechuga"]
+    },
+    {
+        nombre: "Asiatica",
+        description: "Esta es una descripcion de la hamburguesa y es gourmet",
+        ingredientes: ["carne","pan","tomate", "queso chedar","pepino","atun"]
+    }
+])
 
-- *`PUT /users`:*
+use ("filtroMongo_LudwingSantiagoVillamizar")
+db.createCollection("usuarios", {
+    validator: {
+       $jsonSchema: {
+          bsonType: "object",
+          title: "Student Object Validation",
+          required: [ "email", "password"],
+          properties: {
+            email:{
+                bsonType: "string",
+                description: "El email del usuario es requerido",
+            },
+            password:{
+                bsonType: "string",
+                description: "La contraseña es requerida",
+            }
+            }  
+       }
+    }
+})
+db.usuarios.insertMany([
+    {
+        email: "admin@gmail.com",
+        password: "123"
+    }
+])
+```
 
-  ```
-  {
-    "id": 3,
-    "nombre": "Santiago",
-    "email": "Santiago@company.com",
-    "numero": "9876543210",
-    "password": "sfhiud$%5"
-  }
-  ```
+------
 
-  
+# Consultas
 
-- `DELETE /users`: No esta habilitado, una vez registrado no se puede eliminar, se hace con el fin de recopilar información.
+1. Encontrar todos los ingredientes con stock menor a 400:
 
-- *`DELETE /users`:*
+   version: 1.0.0
 
-  ```
-  {
-  
-  }
-  ```
+Get
 
-  
+```
+http://127.10.10.10:3050/api/almacen
+```
 
-### 
+2. Encontrar todas las hamburguesas de la categoría "Vegetariana":
+
+   version: 1.0.1
+
+Get
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+​	
+
+3. Encontrar todos los chefs que se especializan en "Carnes":
+
+​		version: 1.0.0
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas/chefs
+```
+
+​	
+
+ 4. Aumentar en 1.5 el precio de todos los ingredientes:
+
+    version: 1.0.2
+
+Get
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+​	
+
+5. Encontrar todas las hamburguesas preparadas por "ChefB":
+
+​		version: 1.0.1
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas/chefs
+```
+
+6. Encontrar el nombre y la descripción de todas las categorías:
+
+​		version: 1.0.3
+
+Get
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+​	
+
+7. Eliminar todos los ingredientes que tengan un stock de 0:
+
+​		version: 1.0.0
+
+Delete
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+​	
+
+8. Agregar un nuevo ingrediente a la hamburguesa "Clásica":
+
+​		version: 1.0.0
+
+Post
+
+```
+http://127.10.10.10:3050/api/hamburguesas
+```
+
+​	
+
+9. Encontrar todas las hamburguesas que contienen "Pan integral" como ingrediente:
+
+​		version: 1.0.0
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas
+```
+
+​	
+
+10. Cambiar la especialidad del "ChefC" a "Cocina Internacional":
+
+​		version: 1.0.0
+
+Post
+
+```
+http://127.10.10.10:3050/api/hamburguesas/chef
+```
+
+​	
+
+11. Encontrar el ingrediente más caro:
+
+version: 1.0.4
+
+Get
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+​	
+
+12. Encontrar las hamburguesas que no contienen "Queso cheddar" como ingrediente:
+
+​		version: 1.0.1
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas
+```
+
+​	
+
+13. Incrementar el stock de "Pan" en 100 unidades:
+
+​		version: 1.0.0
+
+Put
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+​	
+
+14. Encontrar todos los ingredientes que tienen una descripción que contiene la palabra "clásico":
+
+​		version: 1.0.5
+
+Get
+
+```
+http://127.10.10.10:3050/api/almacen
+```
+
+15. Listar las hamburguesas cuyo precio es menor o igual a $9:
+
+​		version: 1.0.2
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas
+```
+
+16. Contar cuántos chefs hay en la base de datos:
+
+​		version: 1.0.2
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas/chef
+```
+
+17. Encontrar todas las categorías que contienen la palabra "gourmet" en su descripción:
+
+​		version: 1.0.3
+
+Get
+
+```
+http://127.10.10.10:3050/api/hamburguesas
+```
+
+18. Eliminar las hamburguesas que contienen menos de 5 ingredientes:
+
+​		version: 1.0.0
+
+Delete
+
+```
+http://127.10.10.10:3050/api/hamburguesas
+```
+
+19. Agregar un nuevo chef a la colección con una especialidad en "Cocina Asiática":
+
+​		version: 1.0.1
+
+Post
+
+```
+http://127.10.10.10:3050/api/hamburguesas/chef
+```
+
+
+

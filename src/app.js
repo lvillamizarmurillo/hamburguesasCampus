@@ -20,7 +20,7 @@ app
     })
 
     .listen(PORT, ()=> {
-        console.log(`server in http://127.10.10.10:${PORT}`);
+        console.log(`http://127.10.10.10:${PORT}`);
     })
 
     //filtroMongo_LudwingSantiagoVillamizarMurillo
