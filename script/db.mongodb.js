@@ -107,7 +107,6 @@ db.createCollection("chefs", {
             },
             tipoChef:{
                 bsonType: "string",
-                enum: ["Vegetariano","Carnes"],
                 description: "El tipo del chef es requerido",
             }
           }

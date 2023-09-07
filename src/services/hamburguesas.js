@@ -51,4 +51,8 @@ export default class Chefs {
         await menu.updateOne({nombre: "Clasica"},{$set: {ingredientes: ["carne","pan","tomate","lechuga"]}})
         res.status(200).send({status: 200,message: "A la hamburguesa clasica se le añadio lechuga"})
     }
+    static async postChefTipo(req, res) {
+        await chefs.updateOne({nombre: "ChefC"},{$set: {tipoChef: "Cocina Internacional"}})
+        res.status(200).send({status: 200,message: "El ChefC ahora esta especializado en Cocina Internacional"})
+    }
 }
